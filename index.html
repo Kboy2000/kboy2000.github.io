@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    <div class="container">
+        <div class="header">
+            <img src="IMG-20240307-WA0005.jpg" alt="Profile Image" class="profile-img">
+            <h1>CHUKWUEBUKA AKUMUO</h1>
+            <p><i class="fas fa-envelope" style="color: #007bff;"></i> ebukaakumuo@gmail.com</p>
+            <p><i class="fas fa-phone" style="color: #28a745;"></i>  (+234) 702-644-5650</p>
+            <p><i class="fas fa-map-marker-alt" style="color: #dc3545;"></i> Arab Road, Kubwa, Abuja</p>
+        </div>
+    <div class="skills">
+    <div class="skill-item">
+        <img src="https://img.icons8.com/color/48/000000/html-5.png" alt="HTML" class="skill-icon">
+        <span>HTML5</span>
+    </div>
+    <div class="skill-item">
+        <img src="https://img.icons8.com/color/48/000000/css3.png" alt="CSS" class="skill-icon">
+        <span>CSS3</span>
+    </div>
+    <div class="skill-item">
+        <img src="https://img.icons8.com/color/48/000000/typescript.png" alt="TypeScript" class="skill-icon">
+        <span>TypeScript</span>
+    </div>
+    <div class="skill-item">
+        <img src="https://img.icons8.com/plasticine/100/000000/ux-design.png" alt="UI/UX" class="skill-icon">
+        <span>UI/UX Design</span>
+    </div>
+    <div class="skill-item">
+        <img src="https://img.icons8.com/officel/80/000000/react.png" alt="React Js" class="skill-icon">
+        <span>React.js</span>
+    </div>
+    <div class="skill-item">
+        <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="MongoDB" class="skill-icon">
+        <span>MongoDB</span>
+    </div>
+    <div class="skill-item">
+        <img src="https://img.icons8.com/color/48/000000/nodejs.png" alt="Node Js" class="skill-icon">
+        <span>Node.js</span>
+    </div>
+</div>
+
+    <script>
+        // Theme Toggle
+        const themes = ['dark', 'light', 'purple'];
+        let currentThemeIndex = 0;
+
+        function toggleTheme() {
+            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+            const theme = themes[currentThemeIndex];
+            document.body.className = theme + '-theme';
+        }
+
+        // Create Animated Circles
+        function createCircles() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ce79'];
+            for (let i = 0; i < 5; i++) {
+                const circle = document.createElement('div');
+                circle.className = 'circle';
+                const size = Math.random() * 200 + 100;
+                circle.style.width = `${size}px`;
+                circle.style.height = `${size}px`;
+                circle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                circle.style.left = `${Math.random() * 100}vw`;
+                circle.style.top = `${Math.random() * 100}vh`;
+                document.body.appendChild(circle);
+
+                // Animate
+                const duration = Math.random() * 20 + 10;
+                circle.animate([
+                    { transform: 'translate(0, 0) scale(1)' },
+                    { transform: `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px) scale(${Math.random() * 0.5 + 0.5})` },
+                    { transform: 'translate(0, 0) scale(1)' }
+                ], {
+                    duration: duration * 1000,
+                    iterations: Infinity,
+                    easing: 'ease-in-out'
+                });
+            }
+        }
+
+        createCircles();
+    </script>
+</body>
+</html>
